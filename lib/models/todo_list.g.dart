@@ -143,11 +143,11 @@ mixin _$TodoList on _TodoList, Store {
   }
 
   @override
-  void removeCompleted(Todo todo) {
+  void removeCompleted() {
     final _$actionInfo = _$_TodoListActionController.startAction(
         name: '_TodoList.removeCompleted');
     try {
-      return super.removeCompleted(todo);
+      return super.removeCompleted();
     } finally {
       _$_TodoListActionController.endAction(_$actionInfo);
     }

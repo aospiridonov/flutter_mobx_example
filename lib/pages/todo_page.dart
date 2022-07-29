@@ -1,45 +1,30 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import 'package:flutter_mobx_example/models/models.dart';
+import 'package:flutter_mobx_example/widgets/widgets.dart';
 
 class TodoPage extends StatelessWidget {
   const TodoPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('TODO'),
-        centerTitle: true,
-      ),
-      body: Column(
-        children: [],
+    return Provider<TodoList>(
+      create: (_) => TodoList(),
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text('TODO'),
+          centerTitle: true,
+        ),
+        body: Column(
+          children: [
+            AddTodo(),
+            const ActionBar(),
+            const Description(),
+            const TodoListView(),
+          ],
+        ),
       ),
     );
-  }
-}
-
-class _AddTodo extends StatelessWidget {
-  const _AddTodo({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container();
-  }
-}
-
-class _Description extends StatelessWidget {
-  const _Description({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container();
-  }
-}
-
-class _TodoListView extends StatelessWidget {
-  const _TodoListView({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container();
   }
 }

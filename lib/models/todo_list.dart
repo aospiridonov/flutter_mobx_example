@@ -1,7 +1,8 @@
-import 'package:flutter_mobx_example/model/todo.dart';
-import 'package:flutter_mobx_example/model/todo_list_convertor.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:mobx/mobx.dart';
+
+import 'todo.dart';
+import 'todo_list_convertor.dart';
 
 part 'todo_list.g.dart';
 
@@ -82,7 +83,7 @@ abstract class _TodoList with Store {
   }
 
   @action
-  void removeCompleted(Todo todo) {
+  void removeCompleted() {
     todos.removeWhere((todo) => todo.done);
   }
 
